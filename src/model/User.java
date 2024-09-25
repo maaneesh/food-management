@@ -6,14 +6,16 @@ public class User {
     private String name;
     private String password;
     private String email;
-    private String phone;
+    private String role;
 
-    public User(String name, String password, String email, String phone) {
+
+    public User(String name,  String email, String password, String role) {
         this.id = counter++;
         this.name = name;
         this.password = password;
         this.email = email;
-        this.phone = phone;
+        this.role = role;
+
 
     }
 
@@ -56,16 +58,13 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getPhone() {
-        return phone;
+    public String getRole() {
+        return role;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+
     public String toString() {
-        return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email;
+        return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", role=" + role + "]";
     }
 
 

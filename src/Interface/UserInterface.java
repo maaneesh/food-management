@@ -1,6 +1,12 @@
 package Interface;
 
+import model.User;
+
+import java.util.Scanner;
+
 public interface UserInterface {
-    User signIn(String email,String password);
+     User signIn();
+     User registerUser();
+     void viewUsers();
 
 }
