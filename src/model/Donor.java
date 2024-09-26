@@ -9,9 +9,4 @@ public class Donor extends User{
         super(name, email, password, "donor");
     }
 
-    // Method to donate food
-    public void donateFood(String foodName, int quantity, String expirationDate) {
-        Food food = new Food(foodName, quantity, expirationDate);
-        System.out.println(getName() + " donated: " + food);
-    }
 }

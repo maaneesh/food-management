@@ -31,7 +31,7 @@ public class AppClient {
                         signedUser = userInterface.signIn();
                         break;
                     case 2:
-                        userInterface.registerUser();
+                        signedUser = userInterface.registerUser();
                         break;
                     case 3:
                         userInterface.viewUsers();
@@ -60,7 +60,7 @@ public class AppClient {
                             consumerOptions.viewAvailableFood();
                             break;
                         case 2:
-                            signedUser = consumerOptions.logout();
+                            signedUser = consumerOptions.logOut();
                             consumerFlag = false;
 
                         case 3:
@@ -73,27 +73,27 @@ public class AppClient {
             } else if (signedUser.getRole().equals("donor")) {
                 System.out.println("Welcome to Donor Client");
                 DonorInterface donorOptions = new DonorImpl();
-                boolean donorflag = true;
-                while (donorflag) {
+                boolean donorFlag = true;
+                while (donorFlag) {
                     System.out.println("Select an option ");
-                    System.out.println("1. Donate Food  2. Register  3. View Users 4. Logout");
+                    System.out.println("1. Donate Food  2. View Food List  4. Logout");
                     int option = scanner.nextInt();
                     scanner.nextLine();
                     switch (option) {
                         case 1:
-                            donorOptions.donateFood();
+                            donorOptions.donateFood(signedUser.getId());
+                            break;
+                        case 2:
+                           donorOptions.viewDonatedFood(signedUser.getId());
                             break;
                         case 4:
                             System.out.println("Goodbye");
                             signedUser = donorOptions.logOut();
-                            donorflag = false;
+                            donorFlag = false;
 
                     }
                 }
-
-
             }
-
         }
     }
 }

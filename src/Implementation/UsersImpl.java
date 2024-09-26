@@ -1,6 +1,5 @@
 package Implementation;
 
-import Interface.DonorInterface;
 import Interface.UserInterface;
 import model.Consumer;
 import model.Donor;
@@ -29,7 +28,6 @@ public class UsersImpl implements UserInterface{
 
     @Override
     public User signIn() {
-        //Return User
 
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
@@ -55,7 +53,7 @@ public class UsersImpl implements UserInterface{
             }
         }
         if (!signedIn) {
-            System.out.println("Signin unsuccessful!");
+            System.out.println("Signing unsuccessful!");
         }
 
         return null;
@@ -73,7 +71,6 @@ public class UsersImpl implements UserInterface{
         return newUser;
     }
 
-
     @Override
     public void viewUsers() {
         if (userList.isEmpty()) {
@@ -84,7 +81,7 @@ public class UsersImpl implements UserInterface{
         }
     }
 
-    public User askUser() {
+    private User askUser() {
         String username;
         while (true) {
 
@@ -101,7 +98,6 @@ public class UsersImpl implements UserInterface{
             if (!userNameTaken) {
                 break;
             }
-
         }
 
         System.out.println("Please enter your password: ");
@@ -125,9 +121,11 @@ public class UsersImpl implements UserInterface{
         if (role == 1) {
             return new Consumer(username, password, email);
         }
-
         return new Donor(username, password, email);
 
+    }
+    public List<Food> getFoodList(){
+        return donatedFoodList;
     }
 
 

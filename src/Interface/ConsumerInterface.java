@@ -4,5 +4,5 @@ import model.User;
 
 public interface ConsumerInterface {
      void viewAvailableFood();
-   User logout();
+    public User logOut();
 }
