@@ -23,9 +23,10 @@ public class DonorImpl implements DonorInterface {
         String foodName = sc.nextLine();
         System.out.println("Enter quantity: ");
         int quantity = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter expiration date: ");
         String expirationDate = sc.nextLine();
-        sc.nextLine();
+
         return new Food(foodName, quantity, expirationDate,userId);
 
     }
@@ -49,4 +50,21 @@ public class DonorImpl implements DonorInterface {
         return null;
     }
 
+//
+//    public static void main(String[] args) {
+//        Food newFood = null;
+//        DonorImpl donorMenu = new DonorImpl();
+//        Scanner sc = new Scanner(System.in);
+//        newFood = donorMenu.createFood(1);
+//
+//
+//
+//        if (newFood != null) {
+//            System.out.println(newFood.getDonorID()+" " +newFood.getName()+" expires on "+ newFood.getExpirationDate());
+//
+//        }
+//
+//
+//
+//    }
 }

@@ -38,9 +38,7 @@ public class UsersImpl implements UserInterface{
         if (signedUser != null) {
             System.out.println("User signed in successfully.");
         }
-
         return signedUser;
-
     }
 
     public User authenticateUser(String username, String password) {

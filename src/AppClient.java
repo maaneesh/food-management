@@ -9,9 +9,7 @@ import model.User;
 import java.util.Scanner;
 
 public class AppClient {
-
-    public static void main(String[] args) {
-
+    public void runApp(){
         Scanner scanner = new Scanner(System.in);
         UserInterface userInterface = new UsersImpl();
 
@@ -20,7 +18,7 @@ public class AppClient {
 
         while (flag) {
             if (signedUser == null) {
-                System.out.println("Welcome to Libaray Client");
+                System.out.println("Welcome to FoodBank App.");
                 System.out.println("Select an option ");
                 System.out.println("1. Login  2. Register  3. View Users 4. Exit ");
                 int option = scanner.nextInt();
@@ -45,7 +43,7 @@ public class AppClient {
                 }
 
             } else if (signedUser.getRole().equals("admin")) {
-                System.out.println("Welcome to Admin Client");
+                System.out.println("Welcome to Admin Home");
                 UsersImpl usersImpl = new UsersImpl();
 
             } else if (signedUser.getRole().equals("consumer")) {
@@ -62,17 +60,17 @@ public class AppClient {
                             break;
                         case 2:
                             signedUser = consumerOptions.logOut();
+                            System.out.println("See you soon "+signedUser.getName());
                             consumerFlag = false;
-
                         case 3:
-                            System.out.println("Goodbye");
+                            System.out.println("Goodbye. See you soon!");
                             consumerFlag = false;
                     }
 
                 }
 
             } else if (signedUser.getRole().equals("donor")) {
-                System.out.println("Welcome to Donor Client");
+                System.out.println("Welcome to Donor Center");
                 DonorInterface donorOptions = new DonorImpl();
                 boolean donorFlag = true;
                 while (donorFlag) {
@@ -85,7 +83,7 @@ public class AppClient {
                             donorOptions.donateFood(signedUser.getId());
                             break;
                         case 2:
-                           donorOptions.viewDonatedFood(signedUser.getId());
+                            donorOptions.viewDonatedFood(signedUser.getId());
                             break;
                         case 4:
                             System.out.println("Goodbye");
@@ -97,4 +95,5 @@ public class AppClient {
             }
         }
     }
+
 }

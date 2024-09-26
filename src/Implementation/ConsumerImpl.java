@@ -18,12 +18,12 @@ public class ConsumerImpl implements ConsumerInterface {
 
     @Override
     public void viewAvailableFood() {
-        System.out.println("Welcome!\nPlease select any food you'd like.");
         List<Food> availableFood = getFoodList();
-
+        if (availableFood.isEmpty()) {
+            System.out.println("Please check back soon for something delicious!");
+        }else System.out.println("Here's everything for you to enjoy!");
         for (Food food : availableFood) {
             System.out.println(food);
-
         }
         boolean retrieveFlag = true;
         while (retrieveFlag) {
@@ -47,9 +47,6 @@ public class ConsumerImpl implements ConsumerInterface {
                     retrieveFlag = false;
             }
         }
-        //ask if they would like to retreive any food?
-        //if yes
-        //Start a scanner and ask them for the id number for the item they want to claim
 
     }
 
