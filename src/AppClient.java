@@ -46,12 +46,13 @@ public class AppClient {
 
             } else if (signedUser.getRole().equals("admin")) {
                 System.out.println("Welcome to Admin Client");
+                UsersImpl usersImpl = new UsersImpl();
 
             } else if (signedUser.getRole().equals("consumer")) {
                 ConsumerInterface consumerOptions = new ConsumerImpl();
                 boolean consumerFlag = true;
                 while (consumerFlag) {
-                    System.out.println("Welcome to Consumer Client");
+                    System.out.println("Welcome to Consumer Center");
                     System.out.println("Select an option ");
                     System.out.println("1. View AvailableFood  2.Logout 3. Exit ");
                     int option = scanner.nextInt();
